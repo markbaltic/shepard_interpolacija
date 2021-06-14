@@ -36,7 +36,7 @@ vq_tri_delaunay(idx) = v;
 %% Risanje rezultatov
 % velikost narisanih točk
 if h < 40
-    mark_size = 10;
+    mark_size = 0;
 else
     mark_size = 5;
 end
@@ -61,7 +61,7 @@ hold off;
 figure;
 hold on
 grid off
-contour(xq,yq,z_peaks)    
+contour(xq,yq,z_peaks)
 plot3(x,y,v,'.r','MarkerSize',mark_size)
 title('Contour izbranih točk');
 axis off;
@@ -71,8 +71,10 @@ for j=1:st_metod
     figure;
     hold on
     grid off;
-    mesh(xq,yq,vq_vsi{j})
-    plot3(x,y,v,'.r','MarkerSize',mark_size)
+    mesh(xq,yq,vq_vsi{j}) %narišemo rezultate
+    if h < 80
+    plot3(x,y,v,'.r','MarkerSize',mark_size) %poudarimo znane točke
+    end
     axis off;
     view([-34 34])
     title(naslovi{j});
