@@ -41,6 +41,7 @@ for i =1:size(idx,1)
         yi = y(id2');
         vi = v(id2');
         a = [xi, yi, ones(size(xi))];
+        j = j+1;
     end
     p = a\vi;
     dx(i)=p(1);
